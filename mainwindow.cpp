@@ -36,11 +36,11 @@ void MainWindow::on_actionEditCake_triggered()
 
 void MainWindow::on_actionreadFromXml_triggered()
 {
-    QString fileName = QFileDialog::getSaveFileName(this, "select file");
+    QString fileName = QFileDialog::getOpenFileName(this, "select file");
     if (fileName.isEmpty())
         return;
     QFile file(fileName);
-    if (!file.open(QIODevice::WriteOnly))
+    if (!file.open(QIODevice::ReadOnly))
         return;
     QByteArray data = file.readAll();
     _model->deserializeXML(QString(data));
@@ -56,6 +56,7 @@ void MainWindow::on_actionsaveToXml_triggered()
     if (!file.open(QIODevice::WriteOnly))
         return;
     QByteArray data;
+    data = _model->serializeXML().toUtf8();
     file.write(data);
     file.close();
 

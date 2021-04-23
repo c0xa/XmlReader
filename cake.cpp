@@ -118,12 +118,13 @@ QString Cake::serializeXML()
     for (CakeAndCandy s: _CakeAndCandy)
     {
         QDomElement cakeElement = document.createElement("Cake");
-        cakeElement.setAttribute("id", s.id);
+        QDomElement id = document.createElement("id");
+        id.appendChild(document.createTextNode(QString::number(s.id)));
+        cakeElement.appendChild(id);
         QDomElement name = document.createElement("Name");
-        name.appendChild(name);
+        name.appendChild(document.createTextNode(s.name));
+        cakeElement.appendChild(name);
         root.appendChild(cakeElement);
-
-
         }
     return document.toString();
 }
@@ -135,15 +136,18 @@ void Cake::deserializeXML(const QString &xml)
     if (!document.setContent(xml))
         return;
     QDomElement root = document.firstChildElement("CakeDataBase");
-    QDomElement cakeElement = document.firstChildElement("Cake");
+    QDomElement cakeElement = root.firstChildElement("Cake");
 
     while (!cakeElement.isNull())
     {
         CakeAndCandy s;
-        s.id = cakeElement.attributeNode("id").value().toInt();
+        //s.id = cakeElement.attributeNode("id").value().toInt();
+        QDomElement id = cakeElement.firstChildElement("id");
+        s.id= id.firstChild().nodeValue().toInt();
+
 
         QDomElement name = cakeElement.firstChildElement("name");
-        s.name= cakeElement.firstChild().nodeValue();
+        s.name= name.firstChild().nodeValue();
 
         _CakeAndCandy.append(s);
         cakeElement = cakeElement.nextSiblingElement("Cake");
