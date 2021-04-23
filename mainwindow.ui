@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>606</width>
+    <height>336</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTableView" name="tableView">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>40</y>
+      <width>256</width>
+      <height>192</height>
+     </rect>
+    </property>
+    <property name="alternatingRowColors">
+     <bool>true</bool>
+    </property>
+    <property name="selectionMode">
+     <enum>QAbstractItemView::SingleSelection</enum>
+    </property>
+    <property name="selectionBehavior">
+     <enum>QAbstractItemView::SelectRows</enum>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>606</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="act">
+    <property name="title">
+     <string>файл</string>
+    </property>
+    <addaction name="actionAddCake"/>
+    <addaction name="actionDeleteCake"/>
+    <addaction name="actionEditCake"/>
+    <addaction name="actionreadFromXml"/>
+    <addaction name="actionsaveToXml"/>
+   </widget>
+   <addaction name="act"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionAddCake">
+   <property name="text">
+    <string>add cake</string>
+   </property>
+  </action>
+  <action name="actionDeleteCake">
+   <property name="text">
+    <string>delete cake</string>
+   </property>
+  </action>
+  <action name="actionEditCake">
+   <property name="text">
+    <string>edit cake</string>
+   </property>
+  </action>
+  <action name="actionreadFromXml">
+   <property name="text">
+    <string>read from xml</string>
+   </property>
+  </action>
+  <action name="actionsaveToXml">
+   <property name="text">
+    <string>save to xml</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,11 @@
+<?xml encoding="UTF-8" version="1.0">
+<CakeDataBase>
+	<Cake>
+		<id>1</id>
+		<name>Pirog</name>
+	</Cake>
+	<Cake>
+		<id>2</id>
+		<name>pizza</name>
+	</Cake>
+</CakeDataBase>
