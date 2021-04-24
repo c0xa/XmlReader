@@ -21,7 +21,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_actionAddCake_triggered()
 {
-    _model->addCakeAndCandy(1, "pop");
+    _model->addCakeAndCandy(ui->lineEdit->text().toInt(),
+                            ui->lineEdit_2->text());
 }
 
 void MainWindow::on_actionDeleteCake_triggered()
@@ -31,7 +32,8 @@ void MainWindow::on_actionDeleteCake_triggered()
 
 void MainWindow::on_actionEditCake_triggered()
 {
-    _model->editCakeAndCandy(ui->tableView->currentIndex().row(), 1, "red barhat");
+    _model->editCakeAndCandy(ui->tableView->currentIndex().row(), ui->lineEdit->text().toInt(),
+                             ui->lineEdit_2->text());
 }
 
 void MainWindow::on_actionreadFromXml_triggered()
