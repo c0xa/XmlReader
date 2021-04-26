@@ -1,0 +1,30 @@
+<CakeDataBase>
+ <Cake>
+  <id>1</id>
+  <Name>ricotta</Name>
+ </Cake>
+ <Cake>
+  <id>2</id>
+  <Name>red october</Name>
+ </Cake>
+ <Cake>
+  <id>3</id>
+  <Name>pret</Name>
+ </Cake>
+ <Cake>
+  <id>4</id>
+  <Name>orio</Name>
+ </Cake>
+ <Cake>
+  <id>5</id>
+  <Name>vafli</Name>
+ </Cake>
+ <Cake>
+  <id>6</id>
+  <Name>hohland</Name>
+ </Cake>
+ <Cake>
+  <id>0</id>
+  <Name></Name>
+ </Cake>
+</CakeDataBase>

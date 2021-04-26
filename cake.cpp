@@ -27,10 +27,10 @@ QVariant Cake::data(const QModelIndex &index, int role) const
 		}
 	}
 
-	if (role == Qt::ToolTipRole) {
+	if (role == Qt::DecorationRole) {
 		if (index.row() % 2 == 0)
 		{
-			return QColor("#990000");
+			return QColor("#999999");
 		}
 		else
 		{
@@ -39,7 +39,7 @@ QVariant Cake::data(const QModelIndex &index, int role) const
 
 	}
 
-	if (role == Qt::DecorationRole) {
+	if (role == Qt::ToolTipRole) {
 		switch (index.column()) {
 		case 0:
 			return QString("Cake: " + _CakeAndCandy[index.row()].name);
@@ -120,7 +120,6 @@ QString Cake::serializeXML()
 	QDomDocument document;
 	QDomElement root = document.createElement("CakeDataBase");
 	document.appendChild(root);
-
 	for (CakeAndCandy s: _CakeAndCandy)
 	{
 		QDomElement cakeElement = document.createElement("Cake");
@@ -137,6 +136,7 @@ QString Cake::serializeXML()
 
 void Cake::deserializeXML(const QString &xml)
 {
+	beginResetModel();
 	_CakeAndCandy.clear();
 	QDomDocument document;
 	if (!document.setContent(xml))
@@ -147,17 +147,14 @@ void Cake::deserializeXML(const QString &xml)
 	while (!cakeElement.isNull())
 	{
 		CakeAndCandy s;
-		//s.id = cakeElement.attributeNode("id").value().toInt();
 		QDomElement id = cakeElement.firstChildElement("id");
 		s.id= id.firstChild().nodeValue().toInt();
-
-
 		QDomElement name = cakeElement.firstChildElement("Name");
 		s.name= name.firstChild().nodeValue();
-
 		_CakeAndCandy.append(s);
 		cakeElement = cakeElement.nextSiblingElement("Cake");
-		}
+	}
+	endResetModel();
 }
 
 

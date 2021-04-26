@@ -34,7 +34,6 @@ public:
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
     QVariant headerData(int section, Qt::Orientation orientation,
                         int role = Qt::DisplayRole) const;
-//    virtual QModelIndex Index(int row, int column, const QModelIndex &parent = QModelIndex()) const = 0;
     void addCakeAndCandy(int id, const QString &name);
     void deleteCakeAndCandy(int row);
     void editCakeAndCandy(int row, int id, const QString &name);
